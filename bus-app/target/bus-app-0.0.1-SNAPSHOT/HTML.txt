@@ -1,0 +1,6 @@
+types of css
+1. internal style sheet
+disadvantage - code reusability,
+css is written in html
+
+2
