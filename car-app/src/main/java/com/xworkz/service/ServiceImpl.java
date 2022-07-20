@@ -20,7 +20,7 @@ private CarDAOImpl carDAOImpl;
 	}
 	
 	@Override
-	public boolean validateAllDetails(String name, String colour, int speed, int seats, int price) {
+	public boolean validateAllDetails(String name, String colour, int speed, int seats, int price,Model model) {
 		boolean flag=false;
 		if(name!=null &&! name.isEmpty() &&! name.isBlank()) {
 			flag=true;
@@ -29,7 +29,8 @@ private CarDAOImpl carDAOImpl;
 			else {
 				flag=false;
 				System.out.println("Name is not valid : "+name);
-				return flag;
+				model.addAttribute("errorName", "Enter Name of the Car");
+//				return flag;
 			}
 		
 		
@@ -40,7 +41,8 @@ private CarDAOImpl carDAOImpl;
 			else {
 				flag=false;
 				System.out.println("Colour is not valid : "+colour);
-				return flag;
+				model.addAttribute("errorColour", "Enter Colour of the car");
+//				return flag;
 			}
 		
 		
@@ -51,7 +53,9 @@ private CarDAOImpl carDAOImpl;
 		else {
 			flag=false;
 			System.out.println("Speed is not value : "+speed);
-			return flag;
+			model.addAttribute("errorPrice","Enter Speed");
+
+//			return flag;
 		}
 		
 		
@@ -62,7 +66,9 @@ private CarDAOImpl carDAOImpl;
 		else {
 			flag=false;
 			System.out.println("Seats are not valid : "+seats);
-			return flag;
+			model.addAttribute("errorSpeed", "Enter Seat no");
+
+//			return flag;
 		}
 		
 		
@@ -73,7 +79,8 @@ private CarDAOImpl carDAOImpl;
 		else {
 			flag=false;
 			System.out.println("Price is not valid : "+price);
-			return flag;
+			model.addAttribute("errorPrice", "Enter price of the car");
+//			return flag;
 		}
 	    
 		return flag;

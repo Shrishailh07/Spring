@@ -27,7 +27,7 @@ public String getValues() {
 
 @RequestMapping("/readValues")
 public String readValues(@RequestParam String name,@RequestParam String colour,@RequestParam int speed,
-		@RequestParam int seats,@RequestParam int price) {
+		@RequestParam int seats,@RequestParam int price,Model model) {
     System.out.println("Invoked readValues()");
 	System.out.println("Car name : "+name);
 	System.out.println("Car colour : "+colour);
@@ -35,7 +35,7 @@ public String readValues(@RequestParam String name,@RequestParam String colour,@
 	System.out.println("Car seats : "+seats);
 	System.out.println("Car price : "+price);
 	
-	boolean valid = this.serviceImpl.validateAllDetails(name, colour, speed, seats, price);
+	boolean valid = this.serviceImpl.validateAllDetails(name, colour, speed, seats, price,model);
 	System.out.println(valid);
 	
 	if(valid) {
@@ -48,6 +48,7 @@ public String readValues(@RequestParam String name,@RequestParam String colour,@
 		}
 		else {
 			System.out.println("Not Saved to Database");
+			model.addAttribute("errorName", "Enter Name");
 		}
 	}
 	else {

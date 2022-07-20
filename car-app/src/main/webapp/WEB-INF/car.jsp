@@ -12,7 +12,7 @@
  			<input type="text" name="name"> <p style="color:red">${errorName}</p>
 
  			<label><b>Colour</b></label>
- 			<input type="text" name="colour"> ${errorColour}
+ 			<input type="text" name="colour"><p style="color:red">${errorColour}</p>
 
  			<label><b>Speed</b></label>
  			<input type="text" name="speed"> ${errorSpeed}
